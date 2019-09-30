@@ -9,8 +9,10 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.93",
-	"appid": "wx8285c221ef74d732",
-	"projectname": "weather",
+	"appid": "wxb192f8685e68a175",
+	"projectname": "wechat_weather",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
