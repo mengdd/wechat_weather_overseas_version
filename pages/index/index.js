@@ -1,7 +1,16 @@
+const weatherMap = {
+  'sunny': 'sunny',
+  'cloudy': 'cloudy',
+  'overcast': 'overcast',
+  'lightrain': 'light rain',
+  'heavyrain': 'heavy rain',
+  'snow': 'snow'
+}
+
 Page({
   data: {
-    nowTemp: '15°',
-    nowWeather: 'cloudy'
+    nowTemp: '',
+    nowWeather: ''
   },
   onLoad() {
     wx.request({
@@ -15,6 +24,10 @@ Page({
         let temp = result.now.temp
         let weather = result.now.weather
         console.log(temp, weather)
+        this.setData({
+          nowTemp: temp + '°',
+          nowWeather: weatherMap[weather]
+        })
       }
     })
   }
