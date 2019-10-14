@@ -10,13 +10,14 @@ const weatherMap = {
 Page({
   data: {
     nowTemp: '',
-    nowWeather: ''
+    nowWeather: '', 
+    nowWeatherBackground: ''
   },
   onLoad() {
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
-        city: 'GUANGZHOU'
+        city: 'shanghai'
       },
       success: res => {
         console.log(res)
@@ -26,7 +27,8 @@ Page({
         console.log(temp, weather)
         this.setData({
           nowTemp: temp + '°',
-          nowWeather: weatherMap[weather]
+          nowWeather: weatherMap[weather],
+          nowWeatherBackground: '/images/' + weather + '-bg.png'
         })
       }
     })
