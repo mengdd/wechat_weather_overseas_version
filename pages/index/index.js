@@ -22,7 +22,14 @@ Page({
     nowWeather: '', 
     nowWeatherBackground: ''
   },
+  onPullDownRefresh(){
+    console.log("refresh executed!")
+    this.getNow();
+  },
   onLoad() {
+    this.getNow();
+  },
+  getNow() {
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
