@@ -24,12 +24,14 @@ Page({
   },
   onPullDownRefresh(){
     console.log("refresh executed!")
-    this.getNow();
+    this.getNow(() => {
+      wx.stopPullDownRefresh()
+    });
   },
   onLoad() {
     this.getNow();
   },
-  getNow() {
+  getNow(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
@@ -51,6 +53,9 @@ Page({
           frontColor: '#000000',
           backgroundColor: weatherColorMap[weather],
         })
+      },
+      complete: () => {
+        callback && callback()
       }
     })
   }
