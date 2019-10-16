@@ -9,4 +9,8 @@
   <view class="timetips-text">Weather Forecast for Next 24 hours</view>
 </view>
 
-<view wx:for="{{[1,2,3,4,5]}}">{{item}}</view>
+<scroll-view scroll-x>
+  <view class="forecast-list">
+    <view class="forecast-item" wx:for="{{forecast}}">{{item}}</view>
+  </view>
+</scroll-view>
