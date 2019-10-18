@@ -55,13 +55,14 @@ Page({
           backgroundColor: weatherColorMap[weather],
         })
         //set forecast
+        let forecast = result.forecast
         let hourlyWeather = []
         let nowHour = new Date().getHours()
         for (let i = 0; i < 24; i += 3) {
           hourlyWeather.push({
             time: (i + nowHour) % 24 + ":00",
-            iconPath: '/images/sunny-icon.png',
-            temp: "12°"
+            iconPath: '/images/' + forecast[i / 3].weather + '-icon.png',
+            temp: forecast[i / 3].temp + '°'
           })
         }
         hourlyWeather[0].time = 'Now'
