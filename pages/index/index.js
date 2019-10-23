@@ -100,6 +100,25 @@ Page({
     wx.getLocation({
       success: res => {
         console.log(res.latitude, res.longitude)
+        this.reverseGeocoder(res.latitude, res.longitude)
+      }
+    })
+  },
+  // transform location to city name
+  reverseGeocoder(lat, lon) {
+    wx.request({
+      url: 'https://nominatim.openstreetmap.org/reverse',
+      data: {
+        format: "json",
+        lat,
+        lon,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        let city = res.data.address.city;
+        console.log(city);
       }
     })
   }
