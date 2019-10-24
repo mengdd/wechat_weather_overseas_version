@@ -4,7 +4,8 @@ Page({
   date: {
     weekWeather: []
   },
-  onLoad() {
+  onLoad(options) {
+    console.log(options)
     this.getWeekWeather()
   },
   onPullDownRefresh() {
