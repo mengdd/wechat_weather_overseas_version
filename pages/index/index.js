@@ -103,6 +103,11 @@ Page({
       success: res => {
         console.log(res.latitude, res.longitude)
         this.reverseGeocoder(res.latitude, res.longitude)
+      },
+      fail: () => {
+        wx.showToast({
+          title: 'failed',
+        })
       }
     })
   },
