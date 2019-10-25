@@ -6,11 +6,15 @@ Page({
     weekWeather: []
   },
   onLoad(options) {
+    console.log('onLoad')
     console.log(options)
     this.setData({
       city: options.city
     })
     this.getWeekWeather()
+  },
+  onReady() {
+    console.log('onReady')
   },
   onPullDownRefresh() {
     this.getWeekWeather(() => {

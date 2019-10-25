@@ -43,7 +43,11 @@ Page({
     });
   },
   onLoad() {
+    console.log('onLoad')
     this.getNow();
+  },
+  onReady(){
+    console.log('onReady')
   },
   getNow(callback) {
     wx.request({
